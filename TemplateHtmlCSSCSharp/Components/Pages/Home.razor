@@ -1,0 +1,67 @@
+﻿@page "/"
+@using Models
+<PageTitle>Home</PageTitle>
+
+<div class="container-imc">
+    <section class="imagem">
+        <img src="/assets/Desenho.svg"/>
+    </section>
+    <section class="form-container">
+       
+        <EditForm Model="model_IMC" id="form" OnValidSubmit="CalcularIMCSendData">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+            <h1 id="title">Cálculadora - IMC</h1>
+            <div class="input-area">
+                <label>Peso</label>
+                <div class="input-field" >
+                    <i class="fa-solid fa-weight-hanging"></i>
+
+                    <input step="0.01" type="number" placeholder="Seu Peso em Kg" @bind="model_IMC.Peso" required />
+                    <span>Kg</span>
+                </div>
+               
+            </div>
+            <div class="input-area">
+                <label>Altura</label>
+                <div class="input-field">
+                    <i class="fa-solid fa-ruler" aria-hidden="true"></i>
+
+                    <input step="0.01" type="number" placeholder="Sua altura em metros" @bind="model_IMC.Altura" required />
+                    <span>m</span>
+                </div>
+            </div>
+            <button type="submit">Cálcular IMC</button>
+        </EditForm>
+
+        <div id="info" class="@(!show_result?"hidden":"")">
+            <div id="result">
+                <div id="bmi">
+                    <span id="value">@model_IMC.IMC.ToString("F2")</span>
+                    <span>Seu IMC</span>
+                </div>
+                <div id="description">
+                    <span>@model_IMC.Descricao</span>
+                </div>
+            </div>
+            <div id="more-info">
+                <a href="#">Ver mais sobre
+                    <i class="fa-solid fa-up-right-from-square"></i>
+                </a>
+
+            </div>
+        </div>
+    </section>
+</div>
+
+@code {
+    private ModelIMC model_IMC = new ModelIMC();
+    private bool show_result { get; set; } = false;
+
+    private async Task CalcularIMCSendData()
+    {
+        
+        show_result = !show_result;
+    }
+
+}

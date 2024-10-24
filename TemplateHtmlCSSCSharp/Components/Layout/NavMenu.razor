@@ -1,0 +1,35 @@
+﻿<div class="top-row ps-3 navbar">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="">Fast Calculator</a>
+    </div>
+</div>
+
+<input type="checkbox" title="Navigation menu" class="navbar-toggler" />
+
+<div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
+    <nav class="flex-colum">
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                <span aria-hidden="true"><i class="fa-solid fa-house-medical-circle-exclamation"></i></span> 
+                IMC
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="juros">
+                <span aria-hidden="true"><i class="fa-solid fa-money-bill-trend-up"></i></span> Juros Composto
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="preco">
+                <span aria-hidden="true"><i class="fa-solid fa-money-bill-transfer"></i></span> Preço Industrial
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="ativos">
+                <span aria-hidden="true"><i class="fa-solid fa-truck"></i></span>Meus Ativos
+            </NavLink>
+        </div>
+    </nav>
+</div>
